@@ -1,4 +1,4 @@
-<div id="vscodium-logo" align="center">
+<div id="Tron-logo" align="center">
     <br />
     <img src="logo.png" alt="Tron Logo" width="200"/>
     <h1>Tron</h1>
@@ -9,12 +9,15 @@
 
 :tada: :tada:
 Download latest release here:
-[Tron](https://github.com/VSCodium/vscodium/releases)
+[Tron](https://github.com/soheil/tron/releases)
 :tada: :tada:
 
 <small>(Drag to your Applications folder then right click Open and click on Open in the dialog box)</small>
 
 
+<img src="screenshot.png" alt="Tron" />
+
+
 ## <a id="license"></a>License
 
-[MIT](https://github.com/VSCodium/vscodium/blob/master/LICENSE)
+[MIT](https://github.com/soheil/tron/blob/master/LICENSE)
