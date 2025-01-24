@@ -12,7 +12,7 @@ Download latest release here:
 [Tron](https://github.com/soheil/tron/releases)
 :tada: :tada:
 
-<small>(Drag to your Applications folder then right click Open and click on Open in the dialog box)</small>
+> <sup>Drag `Tron.app` to your Applications folder then right click Open and click on Open in the dialog box</sup>
 
 
 <img src="screenshot.png" alt="Tron" />
