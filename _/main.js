@@ -1,7 +1,6 @@
 const { app, BrowserWindow } = require('electron');
 // /Users/soheil/tron/src/vs/platform/workspaces/common/workspaces.ts
-const v = require('vs');
-
+app.workspaces
 function createWindow() {
   const mainWindow = new BrowserWindow({
      width: 800,
