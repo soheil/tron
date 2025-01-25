@@ -1,5 +1,6 @@
-import { BrowserWindow } from 'electron';
-console.log('>>>>>>>>>1111>>>>>>>>>>>>>>>>>');
+const path = require('path');
+console.log('>>>>>>>>>1111>>>>>>>>>>>>>>>>>', path);
+
 // try {
 //   console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>');
 //   import { BrowserWindow } from 'electron';
