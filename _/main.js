@@ -1,7 +1,6 @@
 const { app, BrowserWindow } = require('electron');
 
   console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>');
-  import { BrowserWindow } from 'electron';
 
   // Somewhere in your `main.ts` where you set up your Electron app
   function createWindow() {
