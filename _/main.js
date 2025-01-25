@@ -10,7 +10,7 @@ function createWindow() {
      }
   });
 
-  mainWindow.loadURL('https://google.com/?q=hi');
+  mainWindow.loadURL('https://fiotron.com/');
   // mainWindow.loadFile('index.html');
 }
 
