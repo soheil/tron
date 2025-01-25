@@ -58,5 +58,5 @@ function createWindow() {
 // // Usage
 // createFileInCurrentProject('newfile.txt', 'Hello, this is the content of the file.');
 
-app.workspaces
-console.log();
+
+console.log(app.workspaces);
