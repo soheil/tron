@@ -1,1 +1,5 @@
-console.log('+++_________________+++');
+function mainfn() {
+  console.log('.....................');
+  console.log('.....................');
+}
+mainfn();
