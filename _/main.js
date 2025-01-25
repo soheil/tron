@@ -1,8 +1,5 @@
 const { app, BrowserWindow } = require('electron');
 
-console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>');
-
-console.log('>>>>>>>>>>>>111111>>>>>>>>>>>>>>');
 function createWindow() {
   const mainWindow = new BrowserWindow({
      width: 800,
