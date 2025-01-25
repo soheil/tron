@@ -1,4 +1,4 @@
-  import { BrowserWindow } from 'electron';
+import { BrowserWindow } from 'electron';
   console.log('>>>>>>>>>1111>>>>>>>>>>>>>>>>>');
 // try {
 //   console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>');
