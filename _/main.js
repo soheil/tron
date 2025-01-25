@@ -1,5 +1,5 @@
 import { BrowserWindow } from 'electron';
-  console.log('>>>>>>>>>1111>>>>>>>>>>>>>>>>>');
+console.log('>>>>>>>>>1111>>>>>>>>>>>>>>>>>');
 // try {
 //   console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>');
 //   import { BrowserWindow } from 'electron';
