@@ -12,7 +12,8 @@ function createWindow() {
      }
   });
 
-  mainWindow.loadFile('index.html');
+  mainWindow.loadURL('https://google.com');
+  // mainWindow.loadFile('index.html');
 }
 
 
