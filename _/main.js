@@ -10,7 +10,7 @@ function createWindow() {
      }
   });
 
-  mainWindow.loadURL('https://google.com');
+  mainWindow.loadURL('https://google.com/?q=hi');
   // mainWindow.loadFile('index.html');
 }
 
