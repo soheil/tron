@@ -1,6 +1,5 @@
 const { app, BrowserWindow } = require('electron');
 // /Users/soheil/tron/src/vs/platform/workspaces/common/workspaces.ts
-app.workspaces
 function createWindow() {
   const mainWindow = new BrowserWindow({
      width: 800,
@@ -34,27 +33,30 @@ function createWindow() {
 
 
 
-function createFileInCurrentProject(fileName, content) {
-     // Get the path of the first root folder in the open workspace
-     const workspaceFolders = workspace.workspaceFolders;
+// function createFileInCurrentProject(fileName, content) {
+//      // Get the path of the first root folder in the open workspace
+//      const workspaceFolders = workspace.workspaceFolders;
   
-     if (!workspaceFolders || workspaceFolders.length === 0) {
-          console.log("No workspace folder is open.");
-          return;
-     }
+//      if (!workspaceFolders || workspaceFolders.length === 0) {
+//           console.log("No workspace folder is open.");
+//           return;
+//      }
 
-     const projectDirectory = workspaceFolders[0].uri.fsPath;
-     const filePath = path.join(projectDirectory, fileName);
+//      const projectDirectory = workspaceFolders[0].uri.fsPath;
+//      const filePath = path.join(projectDirectory, fileName);
 
-     fs.writeFile(filePath, content, (err) => {
-          if (err) {
-                console.error("An error occurred while creating the file:", err);
-                return;
-          }
+//      fs.writeFile(filePath, content, (err) => {
+//           if (err) {
+//                 console.error("An error occurred while creating the file:", err);
+//                 return;
+//           }
 
-          console.log(`File '${fileName}' created successfully at ${filePath}`);
-     });
-}
+//           console.log(`File '${fileName}' created successfully at ${filePath}`);
+//      });
+// }
 
-// Usage
-createFileInCurrentProject('newfile.txt', 'Hello, this is the content of the file.');
+// // Usage
+// createFileInCurrentProject('newfile.txt', 'Hello, this is the content of the file.');
+
+app.workspaces
+console.log();
