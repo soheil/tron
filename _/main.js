@@ -1,5 +1,5 @@
-const path = require('path');
-console.log('>>>>>>>>>1111>>>>>>>>>>>>>>>>>', path);
+const { app, BrowserWindow } = require('electron');
+console.log('>>>>>>>>>1111>>>>>>>>>>>>>>>>>', app, BrowserWindow);
 
 // try {
 //   console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>');
