@@ -2,7 +2,7 @@
     <br />
     <img src="logo.png" alt="Tron Logo" width="200"/>
     <h1>Tron</h1>
-    <h3>The LLM code editor</h3>
+    <h3>The LLM code editor with `DeepSeek-R1` support</h3>
 </div>
 
 ## <a id="download-install"></a>Download/Install
