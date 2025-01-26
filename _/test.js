@@ -1,1 +1,1 @@
-console.log(['_']*90);
+console.log(['_'*90]);
