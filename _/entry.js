@@ -16,7 +16,6 @@ const openApp = spawn('open', ['-a', appPath], {
      detached: true, // Allow the app to run independently
      stdio: 'ignore' // Ignore stdio to prevent it from being tied to the parent process
 });
-}
 
 // exec();
 // exec('screen -dmS ol bash -c "ollama run hf.co/unsloth/DeepSeek-R1-Distill-Llama-8B-GGUF:Q8_0"', (error, stdout, stderr) => {
