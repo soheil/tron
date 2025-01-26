@@ -1,9 +1,11 @@
 console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 
-async function aa() {
+function aa() {
+   async function bb() {
    // vscode.workspace.openTextDocument('/Users/soheil/tron/binaries/_/test.js')
    // .then(document => {
       // vscode.window.showTextDocument(document, vscode.ViewColumn.Two);
+   }
 }
 
 a();
