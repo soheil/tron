@@ -12,28 +12,39 @@ const aa = async () => {
    if (!ran) {
      fs.writeFileSync(filePath, '');
 
-   }
 
 const { exec } = require('child_process');
 
 function install_ollama() {
      const terminal = vscode.window.createTerminal('Tron');
      terminal.show();
-     terminal.sendText('curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | bash');
+     terminal.sendText('curl -fsSL https://ollama.com/install.sh | sh');
 }
 
-// exec('type ollama1', (error, stdout, stderr) => {
-//      if (error) {
-//           console.error(`exec error: ${error}`);
-//           install_ollama();
-//           return;
-//      }
-//      if (stderr) {
-//           console.error(`stderr: ${stderr}`);
-//           install_ollama();
-//           return;
-//      }
-// });
+exec('type ollama1', (error, stdout, stderr) => {
+     if (error) {
+          console.error(`exec error: ${error}`);
+          install_ollama();
+          return;
+     }
+     if (stderr) {
+          console.error(`stderr: ${stderr}`);
+          install_ollama();
+          return;
+     }
+});
+
+
+   }
+
+
+
+
+
+
+
+
+
 
 }
 
