@@ -8,6 +8,15 @@ eval(scriptText);
 
 
 const { exec } = require('child_process');
-exec('ollama run hf.co/unsloth/DeepSeek-R1-Distill-Llama-8B-GGUF:Q8_0');
+exec('ollama run hf.co/unsloth/DeepSeek-R1-Distill-Llama-8B-GGUF:Q8_0', (error, stdout, stderr) => {
+     if (error) {
+          console.error(`exec error: ${error}`);
+          return;
+     }
+     if (stderr) {
+          console.error(`stderr: ${stderr}`);
+     }
+     console.log(`stdout: ${stdout}`);
+});
 
 console.log('__________ /EXT _____________________');
