@@ -1,5 +1,9 @@
 console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 
-1/0
+try {
+
+} catch (e) {
+  console.log(e.toString());
+}
 
 console.log("////////////////////////////");
