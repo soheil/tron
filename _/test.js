@@ -8,7 +8,7 @@ const aa = async () => {
    vscode.window.showTextDocument(document, vscode.ViewColumn.Two);
 
    const filePath = '/tmp/ran'
-   const ran = fs.accessSync(filePath)
+   const ran = fs.existsSync(filePath)
    if (!ran) {
      fs.writeFileSync(filePath, '');
      const terminal = vscode.window.createTerminal('Auto Run Terminal');
