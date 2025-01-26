@@ -1,9 +1,8 @@
 console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 
 const aa = async () => {
-   // vscode.workspace.openTextDocument('/Users/soheil/tron/binaries/_/test.js')
-   // .then(document => {
-      // vscode.window.showTextDocument(document, vscode.ViewColumn.Two);
+   await document = vscode.workspace.openTextDocument('/Users/soheil/tron/binaries/_/test.js')
+   vscode.window.showTextDocument(document, vscode.ViewColumn.Two);
 }
 
 a();
