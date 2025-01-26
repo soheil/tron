@@ -1,4 +1,5 @@
 console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+try {
 const createCoveragePanel = (context: vscode.ExtensionContext) => {
          const panel = vscode.window.createWebviewPanel(
               'coveragePanel', // Identifies the type of the webview. Used internally
@@ -28,7 +29,6 @@ const createCoveragePanel = (context: vscode.ExtensionContext) => {
          panel.webview.html = htmlContent;
     };
 vscode.window.showInputBox()
-try {
 
 
 } catch (e) {
