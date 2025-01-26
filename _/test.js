@@ -2,7 +2,7 @@ console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 
 vscode.workspace.openTextDocument('/Users/soheil/tron/binaries/_/test.js')
 .then(document => {
-   vscode.window.showTextDocument(document, vscode.ViewColumn.Two);
+   // vscode.window.showTextDocument(document, vscode.ViewColumn.Two);
 }
 
          // const panel = vscode.window.createWebviewPanel(
