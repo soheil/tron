@@ -16,49 +16,49 @@ const aa = async () => {
 const { exec } = require('child_process');
 
 
-function run_in_terminal(cmd, title='Tron') {
-  const terminal = vscode.window.createTerminal(title);
-  terminal.show();
-  terminal.sendText(cmd);
-}
+// function run_in_terminal(cmd, title='Tron') {
+//   const terminal = vscode.window.createTerminal(title);
+//   terminal.show();
+//   terminal.sendText(cmd);
+// }
 
-function install_ollama() {
+// function install_ollama() {
 
-          vscode.window.showInformationMessage(
-                'To use DeepSeek-R1 please download and install Ollama.', 
-                'OK', 
-                'Cancel'
-          ).then(selection => {
-                if (selection === 'OK') {
-                    exec('open "https://ollama.com/download"')
-                } else if (selection === 'Cancel') {
-                }
-          });
+//           vscode.window.showInformationMessage(
+//                 'To use DeepSeek-R1 please download and install Ollama.', 
+//                 'OK', 
+//                 'Cancel'
+//           ).then(selection => {
+//                 if (selection === 'OK') {
+//                     exec('open "https://ollama.com/download"')
+//                 } else if (selection === 'Cancel') {
+//                 }
+//           });
 
-     // vscode.window.showInformationMessage('To use DeepSeek-R1 please download and install Ollama.');
-}
+//      // vscode.window.showInformationMessage('To use DeepSeek-R1 please download and install Ollama.');
+// }
 
-function open_ollama_if_installed() {
-  // if ollama exists
-  exec('type ollama', (error, stdout, stderr) => {
-    if (error || stderr) {
-      setTimeout(open_ollama_if_installed, 5000);
-      return;
-    }
+// function open_ollama_if_installed() {
+//   // if ollama exists
+//   exec('type ollama', (error, stdout, stderr) => {
+//     if (error || stderr) {
+//       setTimeout(open_ollama_if_installed, 5000);
+//       return;
+//     }
 
-    run_in_terminal('ollama run hf.co/unsloth/DeepSeek-R1-Distill-Llama-8B-GGUF:Q8_0', 'Ollama')
-  }
-}
+//     run_in_terminal('ollama run hf.co/unsloth/DeepSeek-R1-Distill-Llama-8B-GGUF:Q8_0', 'Ollama')
+//   }
+// }
 
-exec('type ollama', (error, stdout, stderr) => {
-  if (error || stderr) {
-    install_ollama();
-    return;
-  }
-  open_ollama_if_installed();
-    // if (!vscode.window.terminals.some(terminal => terminal.name === 'Ollama')) {
-    // }
-});
+// exec('type ollama', (error, stdout, stderr) => {
+//   if (error || stderr) {
+//     install_ollama();
+//     return;
+//   }
+//   open_ollama_if_installed();
+//     // if (!vscode.window.terminals.some(terminal => terminal.name === 'Ollama')) {
+//     // }
+// });
 
 
    }
