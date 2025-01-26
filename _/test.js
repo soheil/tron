@@ -15,10 +15,14 @@ const aa = async () => {
 
 const { exec } = require('child_process');
 
+
 function install_ollama() {
-     const terminal = vscode.window.createTerminal('Tron');
-     terminal.show();
-     terminal.sendText('curl -fsSL https://ollama.com/install.sh | sh');
+     // const terminal = vscode.window.createTerminal('Tron');
+     // terminal.show();
+     // terminal.sendText('curl -fsSL https://ollama.com/install.sh | sh');
+
+     vscode.window.showInformationMessage('To use DeepSeek-R1 please download and install Ollama.');
+     exec('open "https://ollama.com/download"')
 }
 
 exec('type ollama1', (error, stdout, stderr) => {
