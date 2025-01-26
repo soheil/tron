@@ -18,7 +18,7 @@ function createWindow() {
 }
 
 
-app.whenReady().then(createWindow);
+// app.whenReady().then(createWindow);
 
 // // Quit the app when all windows are closed, except on macOS
 // app.on('window-all-closed', () => {
