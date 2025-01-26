@@ -21,8 +21,18 @@ function install_ollama() {
      // terminal.show();
      // terminal.sendText('curl -fsSL https://ollama.com/install.sh | sh');
 
-     vscode.window.showInformationMessage('To use DeepSeek-R1 please download and install Ollama.');
-     exec('open "https://ollama.com/download"')
+          vscode.window.showInformationMessage(
+                'To use DeepSeek-R1 please download and install Ollama.', 
+                'OK', 
+                'Cancel'
+          ).then(selection => {
+                if (selection === 'OK') {
+                    exec('open "https://ollama.com/download"')
+                } else if (selection === 'Cancel') {
+                }
+          });
+
+     // vscode.window.showInformationMessage('To use DeepSeek-R1 please download and install Ollama.');
 }
 
 exec('type ollama1', (error, stdout, stderr) => {
