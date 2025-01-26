@@ -22,18 +22,18 @@ function install_ollama() {
      terminal.sendText('curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | bash');
 }
 
-exec('type ollama1', (error, stdout, stderr) => {
-     if (error) {
-          console.error(`exec error: ${error}`);
-          install_ollama();
-          return;
-     }
-     if (stderr) {
-          console.error(`stderr: ${stderr}`);
-          install_ollama();
-          return;
-     }
-});
+// exec('type ollama1', (error, stdout, stderr) => {
+//      if (error) {
+//           console.error(`exec error: ${error}`);
+//           install_ollama();
+//           return;
+//      }
+//      if (stderr) {
+//           console.error(`stderr: ${stderr}`);
+//           install_ollama();
+//           return;
+//      }
+// });
 
 }
 
