@@ -1,6 +1,6 @@
 console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 
-let ran = true
+let ran = false
 const aa = async () => {
    // vscode.window.showInputBox({ value: "hi" })
    const f = '/Users/soheil/chat/gpt/2025-01-26_12_48_27.md'
@@ -11,7 +11,7 @@ const aa = async () => {
      const terminal = vscode.window.createTerminal('Auto Run Terminal');
      terminal.show();
      terminal.sendText('ls -l');
-     ran = false
+     ran = true
    }
 
 // const { exec } = require('child_process');
