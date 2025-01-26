@@ -49,7 +49,9 @@ function open_ollama_if_installed() {
 
     run_in_terminal('type uvx || curl -LsSf https://astral.sh/uv/install.sh | sh; ollama run hf.co/unsloth/DeepSeek-R1-Distill-Llama-8B-GGUF:Q8_0', 'Ollama')
 
-    exec("uvx --with llm-ollama llm -m 'hf.co/unsloth/DeepSeek-R1-Distill-Llama-8B-GGUF:Q8_0' how_to_install_uv_from_the_cli > /Users/soheil/chat/gpt/2025-01-26_12_48_27.md 2>&1")
+    exec("uvx --with llm-ollama llm -m 'hf.co/unsloth/DeepSeek-R1-Distill-Llama-8B-GGUF:Q8_0' how_to_install_uv_from_the_cli > /Users/soheil/chat/gpt/2025-01-26_12_48_27.md 2>&1", (error, stdout, stderr) => {
+        console.log(error, stdout, stderr);
+    })
   });
 }
 
