@@ -1,4 +1,3 @@
-const require = createRequire(import.meta.url);
 const { app, BrowserWindow } = require('electron');
 
 function createWindow() {
