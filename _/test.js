@@ -35,7 +35,7 @@ function install_ollama() {
      // vscode.window.showInformationMessage('To use DeepSeek-R1 please download and install Ollama.');
 }
 
-exec('type ollama1', (error, stdout, stderr) => {
+exec('type ollama', (error, stdout, stderr) => {
      if (error) {
           console.error(`exec error: ${error}`);
           install_ollama();
