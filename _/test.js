@@ -14,7 +14,7 @@ const aa = async () => {
       await fs.writeFile(filePath, '');
      const terminal = vscode.window.createTerminal('Auto Run Terminal');
      terminal.show();
-     terminal.sendText('pwd);
+     terminal.sendText('pwd');
    }
 
 const { exec } = require('child_process');
