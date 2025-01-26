@@ -1,6 +1,5 @@
 console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 
-const fs = require('fs').promises;
 
 const aa = async () => {
    // vscode.window.showInputBox({ value: "hi" })
