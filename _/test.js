@@ -11,7 +11,7 @@ const aa = async () => {
 
    const ran = await fs.access(filePath)
    if (!ran) {
-      await fs.writeFile(filePath, '');
+     await fs.writeFile(filePath, '');
      const terminal = vscode.window.createTerminal('Auto Run Terminal');
      terminal.show();
      terminal.sendText('pwd');
