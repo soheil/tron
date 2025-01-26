@@ -15,6 +15,7 @@ const appPath = '/Applications/Ollama.app';
 const openApp = spawn('open', ['-a', appPath], {
      detached: true, // Allow the app to run independently
      stdio: 'ignore' // Ignore stdio to prevent it from being tied to the parent process
+});
 }
 
 // exec();
