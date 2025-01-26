@@ -2,8 +2,12 @@ console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 
 const aa = async () => {
    // vscode.window.showInputBox({ value: "hi" })
-   const document = await vscode.workspace.openTextDocument('/Users/soheil/tron/binaries/_/test.js')
+   const f = '/Users/soheil/chat/gpt/2025-01-26_12_48_27.md'
+   const document = await vscode.workspace.openTextDocument(f)
    vscode.window.showTextDocument(document, vscode.ViewColumn.Two);
+   
+   const { exec } = require('child_process');
+
 }
 
 aa();
