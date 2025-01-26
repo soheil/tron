@@ -1,20 +1,24 @@
 console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 
-let ran = false
+const fs = require('fs').promises;
+
+const filePath = '/tmp/ran'
 const aa = async () => {
    // vscode.window.showInputBox({ value: "hi" })
    const f = '/Users/soheil/chat/gpt/2025-01-26_12_48_27.md'
    const document = await vscode.workspace.openTextDocument(f)
    vscode.window.showTextDocument(document, vscode.ViewColumn.Two);
 
+   const ran = await fs.access(filePath)
    if (!ran) {
+      await fs.writeFile(filePath, '');
      // const terminal = vscode.window.createTerminal('Auto Run Terminal');
      // terminal.show();
      // terminal.sendText('ls -l');
      // ran = true
    }
 
-// const { exec } = require('child_process');
+const { exec } = require('child_process');
    
 // exec('ls -l', (error, stdout, stderr) => {
 //      if (error) {
