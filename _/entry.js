@@ -1,1 +1,2 @@
-console.log('+__+_++__+_+_+ext!!!!');
+import * as vscode from 'vscode';
+console.log('+__+_++__+_+_+ext!!!! <<<');
