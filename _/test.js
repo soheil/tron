@@ -1,7 +1,7 @@
 console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 
 try {
-1/0
+  console.log(vscode);
 } catch (e) {
   console.log(e.toString());
 }
