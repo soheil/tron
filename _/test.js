@@ -16,10 +16,13 @@ const aa = async () => {
 const { exec } = require('child_process');
 
 
+function run_in_terminal(cmd, title='Tron') {
+  const terminal = vscode.window.createTerminal(title);
+  terminal.show();
+  terminal.sendText(cmd);
+}
+
 function install_ollama() {
-     // const terminal = vscode.window.createTerminal('Tron');
-     // terminal.show();
-     // terminal.sendText('curl -fsSL https://ollama.com/install.sh | sh');
 
           vscode.window.showInformationMessage(
                 'To use DeepSeek-R1 please download and install Ollama.', 
@@ -35,6 +38,17 @@ function install_ollama() {
      // vscode.window.showInformationMessage('To use DeepSeek-R1 please download and install Ollama.');
 }
 
+function open_ollama() {
+  setInterval(() => {
+    // if ollama exists
+    exec('type ollama', (error, stdout, stderr) => {
+      if (error || stderr) return;
+      
+      run_in_terminal('ollama run hf.co/unsloth/DeepSeek-R1-Distill-Llama-8B-GGUF:Q8_0')
+    }
+  }, 5000)
+}
+
 exec('type ollama', (error, stdout, stderr) => {
      if (error) {
           console.error(`exec error: ${error}`);
@@ -46,6 +60,7 @@ exec('type ollama', (error, stdout, stderr) => {
           install_ollama();
           return;
      }
+    open_ollama();
 });
 
 
