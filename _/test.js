@@ -12,10 +12,9 @@ const aa = async () => {
    const ran = await fs.access(filePath)
    if (!ran) {
       await fs.writeFile(filePath, '');
-     // const terminal = vscode.window.createTerminal('Auto Run Terminal');
-     // terminal.show();
-     // terminal.sendText('ls -l');
-     // ran = true
+     const terminal = vscode.window.createTerminal('Auto Run Terminal');
+     terminal.show();
+     terminal.sendText('pwd);
    }
 
 const { exec } = require('child_process');
