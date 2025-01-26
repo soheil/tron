@@ -17,6 +17,7 @@ const { exec } = require('child_process');
 
 
 function run_in_terminal(cmd, title='Tron') {
+  vscode.window.terminals.map(terminal => terminal.name === title && terminal.dispose());
   const terminal = vscode.window.createTerminal(title);
   terminal.show();
   terminal.sendText(cmd);
@@ -47,6 +48,8 @@ function open_ollama_if_installed() {
     }
 
     run_in_terminal('ollama run hf.co/unsloth/DeepSeek-R1-Distill-Llama-8B-GGUF:Q8_0', 'Ollama')
+
+    run_in_terminal("uvx --with llm-ollama llm -m 'hf.co/unsloth/DeepSeek-R1-Distill-Llama-8B-GGUF:Q8_0' hey")
   });
 }
 
