@@ -51,20 +51,13 @@ function open_ollama_if_installed() {
 }
 
 exec('type ollama', (error, stdout, stderr) => {
-     if (error) {
-          console.error(`exec error: ${error}`);
-          install_ollama();
-          return;
-     }
-     if (stderr) {
-          console.error(`stderr: ${stderr}`);
-          install_ollama();
-          return;
-     }
-     open_ollama_if_installed();
-    if (!vscode.window.terminals.some(terminal => terminal.name === 'Ollama')) {
-      open_ollama();
-    }
+  if (error || stderr) {
+    install_ollama();
+    return;
+  }
+  open_ollama_if_installed();
+    // if (!vscode.window.terminals.some(terminal => terminal.name === 'Ollama')) {
+    // }
 });
 
 
