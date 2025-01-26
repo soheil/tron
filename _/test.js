@@ -8,9 +8,9 @@ const aa = async () => {
    vscode.window.showTextDocument(document, vscode.ViewColumn.Two);
 
    const filePath = '/tmp/ran'
-   const ran = await fs.access(filePath)
+   const ran = fs.accessSync(filePath)
    if (!ran) {
-     await fs.writeFile(filePath, '');
+     fs.writeFileSync(filePath, '');
      const terminal = vscode.window.createTerminal('Auto Run Terminal');
      terminal.show();
      terminal.sendText('pwd');
