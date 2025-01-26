@@ -11,23 +11,29 @@ const aa = async () => {
    const ran = fs.existsSync(filePath)
    if (!ran) {
      fs.writeFileSync(filePath, '');
-     const terminal = vscode.window.createTerminal('Auto Run Terminal');
-     terminal.show();
-     terminal.sendText('ollama run hf.co/unsloth/DeepSeek-R1-Distill-Llama-8B-GGUF:Q8_0');
+
    }
 
 const { exec } = require('child_process');
-   
-// exec('ls -l', (error, stdout, stderr) => {
-//      if (error) {
-//           console.error(`exec error: ${error}`);
-//           return;
-//      }
-//      if (stderr) {
-//           console.error(`stderr: ${stderr}`);
-//      }
-//      console.log(`stdout: ${stdout}`);
-// });
+
+function install_ollama() {
+     const terminal = vscode.window.createTerminal('Tron');
+     terminal.show();
+     terminal.sendText('curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | bash');
+}
+
+exec('type ollama1', (error, stdout, stderr) => {
+     if (error) {
+          console.error(`exec error: ${error}`);
+          install_ollama();
+          return;
+     }
+     if (stderr) {
+          console.error(`stderr: ${stderr}`);
+          install_ollama();
+          return;
+     }
+});
 
 }
 
