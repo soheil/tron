@@ -2,7 +2,7 @@ console.log('__________ EXT _____________________');
 const { app, BrowserWindow } = require('electron');
 const vv = require('vscode');
 console.log('>>>>3');
-console.log(vscode);
+console.log(vscode.window);
 console.log('>>>>4');
 
 
