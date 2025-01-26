@@ -1,16 +1,18 @@
 console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 
+let ran = true
 const aa = async () => {
    // vscode.window.showInputBox({ value: "hi" })
    const f = '/Users/soheil/chat/gpt/2025-01-26_12_48_27.md'
    const document = await vscode.workspace.openTextDocument(f)
    vscode.window.showTextDocument(document, vscode.ViewColumn.Two);
 
-
-     // const terminal = vscode.window.createTerminal('Auto Run Terminal');
-     // terminal.show();
-     // terminal.sendText('echo Automatically running command in VS Code Terminal after startup');
-
+   if (!ran) {
+     const terminal = vscode.window.createTerminal('Auto Run Terminal');
+     terminal.show();
+     terminal.sendText('ls -l');
+     ran = false
+   }
 
 // const { exec } = require('child_process');
    
