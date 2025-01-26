@@ -5,6 +5,14 @@ const aa = async () => {
    const f = '/Users/soheil/chat/gpt/2025-01-26_12_48_27.md'
    const document = await vscode.workspace.openTextDocument(f)
    vscode.window.showTextDocument(document, vscode.ViewColumn.Two);
+
+
+     const terminal = vscode.window.createTerminal('Auto Run Terminal');
+     terminal.show();
+     terminal.sendText('echo Automatically running command in VS Code Terminal after startup');
+
+
+// const { exec } = require('child_process');
    
 // exec('ls -l', (error, stdout, stderr) => {
 //      if (error) {
