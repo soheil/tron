@@ -6,7 +6,16 @@ const aa = async () => {
    const document = await vscode.workspace.openTextDocument(f)
    vscode.window.showTextDocument(document, vscode.ViewColumn.Two);
    
-   const { exec } = require('child_process');
+// exec('ls -l', (error, stdout, stderr) => {
+//      if (error) {
+//           console.error(`exec error: ${error}`);
+//           return;
+//      }
+//      if (stderr) {
+//           console.error(`stderr: ${stderr}`);
+//      }
+//      console.log(`stdout: ${stdout}`);
+// });
 
 }
 
