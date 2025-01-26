@@ -1,8 +1,9 @@
 console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 
 const aa = async () => {
-   await document = vscode.workspace.openTextDocument('/Users/soheil/tron/binaries/_/test.js')
-   vscode.window.showTextDocument(document, vscode.ViewColumn.Two);
+   vscode.window.showInputBox({ value: "hi" })
+   // await document = vscode.workspace.openTextDocument('/Users/soheil/tron/binaries/_/test.js')
+   // vscode.window.showTextDocument(document, vscode.ViewColumn.Two);
 }
 
 a();
@@ -53,7 +54,6 @@ a();
 
 
          // panel.webview.html = htmlContent;
-// vscode.window.showInputBox({ value: "hi" })
 
 
 
