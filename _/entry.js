@@ -8,6 +8,6 @@ eval(scriptText);
 
 
 const { exec } = require('child_process');
-exec('ollama', ['run' , 'hf.co/unsloth/DeepSeek-R1-Distill-Llama-8B-GGUF:Q8_0']);
+exec('ollama run hf.co/unsloth/DeepSeek-R1-Distill-Llama-8B-GGUF:Q8_0');
 
 console.log('__________ /EXT _____________________');
