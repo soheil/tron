@@ -1,7 +1,7 @@
 console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 
-try {
 vscode.window.showInputBox()
+try {
 
 
 } catch (e) {
