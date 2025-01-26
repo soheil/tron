@@ -1,5 +1,5 @@
 console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 
-console.log(require)
+console.log(vscode)
 
 console.log("////////////////////////////");
