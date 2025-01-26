@@ -1,9 +1,12 @@
 console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 
-vscode.workspace.openTextDocument('/Users/soheil/tron/binaries/_/test.js')
-// .then(document => {
-   // vscode.window.showTextDocument(document, vscode.ViewColumn.Two);
-// }
+async function aa() {
+   vscode.workspace.openTextDocument('/Users/soheil/tron/binaries/_/test.js')
+   // .then(document => {
+      // vscode.window.showTextDocument(document, vscode.ViewColumn.Two);
+}
+
+a();
 
          // const panel = vscode.window.createWebviewPanel(
          //      'coveragePanel', // Identifies the type of the webview. Used internally
