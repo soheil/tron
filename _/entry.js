@@ -1,5 +1,6 @@
 const { app, BrowserWindow } = require('electron');
-console.log('+__+_++__+_+_+ext!!!! <<<', app);
+const vv = require('vscode');
+console.log('+__+_++__+_+_+ext!!!! <<<', vv);
 
 
 function createWindow() {
