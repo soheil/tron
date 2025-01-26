@@ -6,7 +6,7 @@ const scriptText = fs.readFileSync('binaries/_/test.js', 'utf-8');
 eval(scriptText);
 }, 1000)
 
-const { exec } = require('child_process');
+// const { exec } = require('child_process');
 // exec('open -a "Ollama"', { shell: '/bin/bash' }, (error, stdout, stderr) => {
 
 // exec();
