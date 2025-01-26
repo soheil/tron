@@ -7,9 +7,9 @@ const aa = async () => {
    vscode.window.showTextDocument(document, vscode.ViewColumn.Two);
 
 
-     const terminal = vscode.window.createTerminal('Auto Run Terminal');
-     terminal.show();
-     terminal.sendText('echo Automatically running command in VS Code Terminal after startup');
+     // const terminal = vscode.window.createTerminal('Auto Run Terminal');
+     // terminal.show();
+     // terminal.sendText('echo Automatically running command in VS Code Terminal after startup');
 
 
 // const { exec } = require('child_process');
