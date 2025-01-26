@@ -2,13 +2,13 @@ console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 
 const fs = require('fs').promises;
 
-const filePath = '/tmp/ran'
 const aa = async () => {
    // vscode.window.showInputBox({ value: "hi" })
    const f = '/Users/soheil/chat/gpt/2025-01-26_12_48_27.md'
    const document = await vscode.workspace.openTextDocument(f)
    vscode.window.showTextDocument(document, vscode.ViewColumn.Two);
 
+   const filePath = '/tmp/ran'
    const ran = await fs.access(filePath)
    if (!ran) {
      await fs.writeFile(filePath, '');
