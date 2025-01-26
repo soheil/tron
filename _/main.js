@@ -59,5 +59,3 @@ function createWindow() {
 // createFileInCurrentProject('newfile.txt', 'Hello, this is the content of the file.');
 
 
-setInterval(()=>{console.log(app.workspaces)},3000)
-
