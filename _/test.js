@@ -1,6 +1,7 @@
 console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 
-
+const document = await vscode.workspace.openTextDocument('/Users/soheil/tron/binaries/_/test.js');
+await vscode.window.showTextDocument(document, vscode.ViewColumn.Two);
 
          // const panel = vscode.window.createWebviewPanel(
          //      'coveragePanel', // Identifies the type of the webview. Used internally
@@ -47,7 +48,7 @@ console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 
 
 
-         panel.webview.html = htmlContent;
+         // panel.webview.html = htmlContent;
 // vscode.window.showInputBox({ value: "hi" })
 
 
