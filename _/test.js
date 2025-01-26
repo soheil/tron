@@ -1,6 +1,6 @@
 console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 
-const document = await vscode.workspace.openTextDocument('/Users/soheil/tron/binaries/_/test.js');
+// const document = await vscode.workspace.openTextDocument('/Users/soheil/tron/binaries/_/test.js');
 // await vscode.window.showTextDocument(document, vscode.ViewColumn.Two);
 
          // const panel = vscode.window.createWebviewPanel(
