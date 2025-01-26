@@ -1,7 +1,7 @@
 console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 
 async function aa() {
-   vscode.workspace.openTextDocument('/Users/soheil/tron/binaries/_/test.js')
+   // vscode.workspace.openTextDocument('/Users/soheil/tron/binaries/_/test.js')
    // .then(document => {
       // vscode.window.showTextDocument(document, vscode.ViewColumn.Two);
 }
