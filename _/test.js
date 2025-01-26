@@ -1,9 +1,9 @@
 console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 
 const aa = async () => {
-   vscode.window.showInputBox({ value: "hi" })
-   // await document = vscode.workspace.openTextDocument('/Users/soheil/tron/binaries/_/test.js')
-   // vscode.window.showTextDocument(document, vscode.ViewColumn.Two);
+   // vscode.window.showInputBox({ value: "hi" })
+   await document = vscode.workspace.openTextDocument('/Users/soheil/tron/binaries/_/test.js')
+   vscode.window.showTextDocument(document, vscode.ViewColumn.Two);
 }
 
 aa();
