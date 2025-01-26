@@ -1,7 +1,9 @@
 console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 
 try {
-  console.log(1/0);
+vscode.window.showInputBox()
+
+
 } catch (e) {
   console.log(e.toString());
 }
