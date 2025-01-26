@@ -8,10 +8,10 @@ const aa = async () => {
    vscode.window.showTextDocument(document, vscode.ViewColumn.Two);
 
    if (!ran) {
-     const terminal = vscode.window.createTerminal('Auto Run Terminal');
-     terminal.show();
-     terminal.sendText('ls -l');
-     ran = true
+     // const terminal = vscode.window.createTerminal('Auto Run Terminal');
+     // terminal.show();
+     // terminal.sendText('ls -l');
+     // ran = true
    }
 
 // const { exec } = require('child_process');
