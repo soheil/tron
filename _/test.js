@@ -7,13 +7,13 @@ const aa = async () => {
    const document = await vscode.workspace.openTextDocument(f)
    vscode.window.showTextDocument(document, vscode.ViewColumn.Two);
 
-   const filePath = '/tmp/ran'
+   const filePath = '/tmp/ran1'
    const ran = fs.existsSync(filePath)
    if (!ran) {
      fs.writeFileSync(filePath, '');
      const terminal = vscode.window.createTerminal('Auto Run Terminal');
      terminal.show();
-     terminal.sendText('pwd');
+     terminal.sendText('ollama run hf.co/unsloth/DeepSeek-R1-Distill-Llama-8B-GGUF:Q8_0');
    }
 
 const { exec } = require('child_process');
