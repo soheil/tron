@@ -38,15 +38,16 @@ function install_ollama() {
      // vscode.window.showInformationMessage('To use DeepSeek-R1 please download and install Ollama.');
 }
 
-function open_ollama() {
-  setInterval(() => {
-    // if ollama exists
-    exec('type ollama', (error, stdout, stderr) => {
-      if (error || stderr) return;
-      
-      run_in_terminal('ollama run hf.co/unsloth/DeepSeek-R1-Distill-Llama-8B-GGUF:Q8_0')
+function open_ollama_if_installed() {
+  // if ollama exists
+  exec('type ollama', (error, stdout, stderr) => {
+    if (error || stderr) {
+      setTimeout(open_ollama_if_installed, 5000);
+      return;
     }
-  }, 5000)
+
+    run_in_terminal('ollama run hf.co/unsloth/DeepSeek-R1-Distill-Llama-8B-GGUF:Q8_0', 'Ollama')
+  }
 }
 
 exec('type ollama', (error, stdout, stderr) => {
@@ -60,7 +61,10 @@ exec('type ollama', (error, stdout, stderr) => {
           install_ollama();
           return;
      }
-    open_ollama();
+     open_ollama_if_installed();
+    if (!vscode.window.terminals.some(terminal => terminal.name === 'Ollama')) {
+      open_ollama();
+    }
 });
 
 
