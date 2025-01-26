@@ -8,7 +8,7 @@ eval(scriptText);
 
 
 const { exec } = require('child_process');
-    exec('open -a /Applications/Ollama.app/', (error, stdout, stderr) => {
+    exec('open -a /Applications/Ollama.app', (error, stdout, stderr) => {
       if (error) {
          console.error(`Error opening app: ${error.message}`);
          return;
