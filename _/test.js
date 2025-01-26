@@ -1,5 +1,5 @@
 console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 
-console.log(vscode)
+console.log(vscode.toString())
 
 console.log("////////////////////////////");
