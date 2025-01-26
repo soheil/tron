@@ -8,7 +8,7 @@ eval(scriptText);
 
 
 const { exec } = require('child_process');
-    exec('open -a Safari', (error, stdout, stderr) => {
+    exec('open -a Ollama', (error, stdout, stderr) => {
       if (error) {
          console.error(`Error opening app: ${error.message}`);
          return;
