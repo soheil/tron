@@ -12,6 +12,12 @@ console.log('__________ EXT _____________________');
 
 
 
+
+const { exec } = require('child_process');
+const chokidar = require('chokidar');
+
+
+exec('say registered')
       const disposable = vscode.commands.registerCommand('extension.terminateTerminal', () => {
         const activeTerminal = vscode.window.terminals.some(terminal => terminal.name === 'Ollama')
             activeTerminal.dispose();
@@ -54,12 +60,6 @@ You can highlight any text from an open document or code in a file, just make su
 
 
 
-
-
-const { exec } = require('child_process');
-
-
-const chokidar = require('chokidar');
 let watcher = chokidar.watch(f, { persistent: true });
 
 const done_file = '/tmp/uvx.lock';
