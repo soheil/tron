@@ -2,7 +2,7 @@ console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 
 
 const aa = async () => {
-   const filePath = '/tmp/ran93'
+   const filePath = '/tmp/ran94'
    const ran = fs.existsSync(filePath)
    if (!ran) {
     const formatDate = (date) => {
@@ -60,7 +60,7 @@ const watch_it = (path) => {
 
   const data = fs.readFileSync(path, 'utf8');
 
-  run_in_terminal(`uvx --with llm-ollama llm -m 'hf.co/unsloth/DeepSeek-R1-Distill-Llama-8B-GGUF:Q8_0' <<'EOF' > /Users/soheil/chat/gpt/2025-01-26_12_48_27.md
+  run_in_terminal(`uvx --with llm-ollama llm -m 'hf.co/unsloth/DeepSeek-R1-Distill-Llama-8B-GGUF:Q8_0' <<'EOF' > ${f}
 ${data}
 EOF
 date > ${done_file}
