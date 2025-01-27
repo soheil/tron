@@ -21,7 +21,7 @@ const watcher = chokidar.watch(f, {
   persistent: true
 });
 
-  .on('change', (path) => {
+  watcher.on('change', (path) => {
     run_in_terminal("uvx --with llm-ollama llm -m 'hf.co/unsloth/DeepSeek-R1-Distill-Llama-8B-GGUF:Q8_0' coooool > /Users/soheil/chat/gpt/2025-01-26_12_48_27.md")
      // Handle file change
   })
