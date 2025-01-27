@@ -19,10 +19,10 @@ const chokidar = require('chokidar');
 
 exec('say registered')
       const disposable = vscode.commands.registerCommand('extension.terminateTerminal', () => {
-        const activeTerminal = vscode.window.terminals.some(terminal => terminal.name === 'Ollama')
-            activeTerminal.dispose();
-            vscode.window.showWarningMessage('Stopped LLM output.');
-         }
+        // const activeTerminal = vscode.window.terminals.some(terminal => terminal.name === 'Ollama')
+        //     activeTerminal.dispose();
+        //     vscode.window.showWarningMessage('Stopped LLM output.');
+        //  }
       });
       context.subscriptions.push(disposable);
 
