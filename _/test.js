@@ -49,7 +49,10 @@ ${data}
 EOF
 date > ${done_file}
 exit`);
-  vscode.commands.executeCommand('workbench.action.closePanel');
+  setTimeout(async () => {
+    await vscode.commands.executeCommand('workbench.action.closePanel');
+
+  }, 300)
 
   vscode.window.showTextDocument(document, vscode.ViewColumn.Two)
 }
