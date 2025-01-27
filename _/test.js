@@ -2,7 +2,7 @@ console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 
 
 const aa = async () => {
-   const filePath = '/tmp/ran94'
+   const filePath = '/tmp/ran96'
    const ran = fs.existsSync(filePath)
    if (!ran) {
     const formatDate = (date) => {
@@ -21,7 +21,7 @@ const aa = async () => {
    const f = `/tmp/${currentDateTime}.md`;
   fs.writeFileSync(f, `Hi to you Tron user!
 
-CMD+A in this view to replace all the text and type your question for DeepSeek-R1 and then press CMD+S to save and ask your question.
+Delete this text and type your question for DeepSeek-R1 and then press CMD+S to save and ask your question.
     `);
    const document = await vscode.workspace.openTextDocument(f)
    const editor = await vscode.window.showTextDocument(document, vscode.ViewColumn.Two);
