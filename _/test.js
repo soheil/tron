@@ -7,7 +7,7 @@ const aa = async () => {
    const document = await vscode.workspace.openTextDocument(f)
    const editor = await vscode.window.showTextDocument(document, vscode.ViewColumn.Two);
 
-   const filePath = '/tmp/ran56'
+   const filePath = '/tmp/ran57'
    const ran = fs.existsSync(filePath)
    if (!ran) {
      fs.writeFileSync(filePath, '');
@@ -40,7 +40,7 @@ const watch_it = (path) => {
 
   run_in_terminal(`uvx --with llm-ollama llm -m 'hf.co/unsloth/DeepSeek-R1-Distill-Llama-8B-GGUF:Q8_0' <<'EOF' > /Users/soheil/chat/gpt/2025-01-26_12_48_27.md
 ${data}
-EOF`, finished_running_in_terminal);
+EOF`, 'Tron', finished_running_in_terminal);
 }
 
 watcher.on('change', watch_it);
