@@ -16,16 +16,15 @@ const aa = async () => {
 const { exec } = require('child_process');
 
 
-const fileWatcher = vscode.workspace.createFileSystemWatcher('**/2025-01-26_12_48_27.md');
-console.log(fileWatcher);
-
-fileWatcher.onDidChange((uri) => {
-  console.log(uri);
-  fileWatcher.dispose();
-
-  run_in_terminal("uvx --with llm-ollama llm -m 'hf.co/unsloth/DeepSeek-R1-Distill-Llama-8B-GGUF:Q8_0' coooool > /Users/soheil/chat/gpt/2025-01-26_12_48_27.md")
-
+const chokidar = require('chokidar');
+const watcher = chokidar.watch(f, {
+  persistent: true
 });
+
+  .on('change', (path) => {
+    run_in_terminal("uvx --with llm-ollama llm -m 'hf.co/unsloth/DeepSeek-R1-Distill-Llama-8B-GGUF:Q8_0' coooool > /Users/soheil/chat/gpt/2025-01-26_12_48_27.md")
+     // Handle file change
+  })
 
 function run_in_terminal(cmd, title='Tron') {
   vscode.window.terminals.map(terminal => terminal.name === title && terminal.dispose());
