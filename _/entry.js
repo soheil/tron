@@ -17,7 +17,6 @@ const { exec } = require('child_process');
 const chokidar = require('chokidar');
 
 
-exec('say registered')
       const disposable = vscode.commands.registerCommand('extension.terminateTerminal', () => {
         const activeTerminal = vscode.window.terminals.some(terminal => terminal.name === 'Ollama');
         activeTerminal.dispose();
