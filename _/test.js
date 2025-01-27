@@ -2,7 +2,7 @@ console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 
 
 const aa = async () => {
-   const filePath = '/tmp/ran89'
+   const filePath = '/tmp/ran91'
    const ran = fs.existsSync(filePath)
    if (!ran) {
    // vscode.window.showInputBox({ value: "hi" })
@@ -35,7 +35,7 @@ const watch_it = (path) => {
   
   function finished_running_in_terminal(path) {
     done_watcher.close();
-    clearTimeout(int_id);
+    // clearTimeout(int_id);
 
     watcher = chokidar.watch(f, { persistent: true });
     watcher.on('change', watch_it);
