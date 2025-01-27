@@ -17,15 +17,13 @@ const { exec } = require('child_process');
 
 
 const chokidar = require('chokidar');
-let watcher = chokidar.watch(f, { persistent: true });
+let watcher = chokidar.watch(f);
 
 const done_file = '/tmp/uvx.lock';
 fs.writeFileSync(done_file, '');
-const done_watcher = chokidar.watch(done_file, { persistent: true });
+const done_watcher = chokidar.watch(done_file);
 
 const watch_it = (path) => {
-  watcher.close();
-
   const int_id = setInterval(() => {
      const lastLineIndex = document.lineCount - 1;
      const range = new vscode.Range(lastLineIndex, 0, lastLineIndex, 0);
@@ -36,7 +34,7 @@ const watch_it = (path) => {
   function finished_running_in_terminal(path) {
     clearTimeout(int_id);
 
-    watcher = chokidar.watch(f, { persistent: true });
+    watcher = chokidar.watch(f);
     watcher.on('change', watch_it);
   }
   done_watcher.on('change', finished_running_in_terminal);
