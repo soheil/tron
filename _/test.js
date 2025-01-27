@@ -19,6 +19,10 @@ const { exec } = require('child_process');
 const chokidar = require('chokidar');
 let watcher = chokidar.watch(f, { persistent: true });
 
+const done_file = '/tmp/uvx.lock';
+fs.writeFileSync(done_file, '');
+const done_watcher = chokidar.watch(done_file, { persistent: true });
+
 const watch_it = (path) => {
   watcher.close();
 
@@ -28,10 +32,6 @@ const watch_it = (path) => {
      editor.revealRange(range, vscode.TextEditorRevealType.AtBottom);
   }, 200);
 
-
-  const done_file = '/tmp/uvx.lock';
-  fs.writeFileSync(done_file, '');
-  const done_watcher = chokidar.watch(done_file, { persistent: true });
   
   function finished_running_in_terminal(path) {
     clearTimeout(int_id);
