@@ -17,6 +17,7 @@ const { exec } = require('child_process');
 
 
 const chokidar = require('chokidar');
+let watcher = chokidar.watch(f, { persistent: true });
 
 const watch_it = (path) => {
   watcher.close();
@@ -39,7 +40,6 @@ EOF`);
   watcher.on('change', watch_it);
 }
 
-let watcher = chokidar.watch(f, { persistent: true });
 watcher.on('change', watch_it);
 
 function run_in_terminal(cmd, title='Tron') {
