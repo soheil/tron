@@ -7,7 +7,7 @@ const aa = async () => {
    const document = await vscode.workspace.openTextDocument(f)
    const editor = await vscode.window.showTextDocument(document, vscode.ViewColumn.Two);
 
-   const filePath = '/tmp/ran48'
+   const filePath = '/tmp/ran49'
    const ran = fs.existsSync(filePath)
    if (!ran) {
      fs.writeFileSync(filePath, '');
@@ -23,9 +23,17 @@ const watch_it = (path) => {
   watcher.close();
 
   const int_id = setInterval(() => {
-    const lastLine = document.lineCount - 1;
-    const range = new vscode.Range(lastLine, 0, lastLine, 0);
-    editor.revealRange(range, vscode.TextEditorRevealType.AtTop);
+     let lastNonEmptyLine = 0;
+     for (let i = document.lineCount - 1; i >= 0; i--) {
+          const lineText = document.lineAt(i).text.trim();
+          if (lineText !== '') {
+                lastNonEmptyLine = i;
+                break;
+          }
+     }
+
+     // Create a range that spans the last non-empty line
+     const range = new vscode.Range(lastNonEmptyLine, 0, lastNonEmptyLine, 0);
   }, 200);
 
 
