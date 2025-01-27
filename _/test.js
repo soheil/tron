@@ -74,9 +74,9 @@ date > ${done_file}
 exit`);
   setTimeout(async () => {
     await vscode.commands.executeCommand('workbench.action.closePanel');
+    vscode.window.showTextDocument(document, vscode.ViewColumn.Two)
   }, 200)
 
-  vscode.window.showTextDocument(document, vscode.ViewColumn.Two)
 }
 
 watcher.on('change', watch_it);
@@ -85,6 +85,7 @@ function run_in_terminal(cmd, title='Tron', show=false) {
   vscode.window.terminals.map(terminal => terminal.name === title && terminal.dispose());
   const terminal = vscode.window.createTerminal(title);
   show && terminal.show();
+  !show && vscode.window.showTextDocument(document, vscode.ViewColumn.Two);
   terminal.sendText(cmd);
 }
 
@@ -96,6 +97,7 @@ function install_ollama() {
                 'Cancel'
           ).then(selection => {
                 if (selection === 'OK') {
+                    open_ollama_if_installed();
                     exec('open "https://ollama.com/download"')
                 } else if (selection === 'Cancel') {
                 }
@@ -104,7 +106,7 @@ function install_ollama() {
      // vscode.window.showInformationMessage('To use DeepSeek-R1 please download and install Ollama.');
 }
 
-function open_ollama_if_installed() {
+function open_ollama_if_installed(show=true) {
   // if ollama exists
   exec('type ollama', (error, stdout, stderr) => {
     if (error || stderr) {
@@ -112,7 +114,7 @@ function open_ollama_if_installed() {
       return;
     }
 
-    run_in_terminal('echo -e "\n\n************ PLEASE KEEP THIS TERMINAL RUNNING ************\n"; type uvx || curl -LsSf https://astral.sh/uv/install.sh | sh; ollama run hf.co/unsloth/DeepSeek-R1-Distill-Llama-8B-GGUF:Q8_0', 'Ollama', true)
+    run_in_terminal('echo -e "\n\n************ PLEASE KEEP THIS TERMINAL RUNNING ************\n"; type uvx || curl -LsSf https://astral.sh/uv/install.sh | sh; ollama run hf.co/unsloth/DeepSeek-R1-Distill-Llama-8B-GGUF:Q8_0', 'Ollama', show)
 
 
   });
@@ -123,7 +125,7 @@ exec('type ollama', (error, stdout, stderr) => {
     install_ollama();
     return;
   }
-  open_ollama_if_installed();
+  open_ollama_if_installed(false);
     // if (!vscode.window.terminals.some(terminal => terminal.name === 'Ollama')) {
     // }
 });
