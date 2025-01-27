@@ -1,11 +1,11 @@
 console.log('__________ EXT _____________________');
 
+(async () => {
+
 // setInterval(()=>{
 // const scriptText = fs.readFileSync('binaries/_/test.js', 'utf-8');
 // eval(scriptText);
 // }, 1000)
-
-
 
 
 
@@ -154,5 +154,9 @@ exec('type ollama', (error, stdout, stderr) => {
 
 
 
+
+
+
+})();
 
 console.log('__________ /EXT _____________________');
