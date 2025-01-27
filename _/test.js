@@ -22,11 +22,14 @@ const aa = async () => {
   fs.writeFileSync(f, `Hi to you Tron user!
 
 Delete this text and type your question for DeepSeek-R1 and then press CMD+S to save and ask your question.
-    `);
+`);
    const document = await vscode.workspace.openTextDocument(f)
    const editor = await vscode.window.showTextDocument(document, vscode.ViewColumn.Two);
 
-     fs.writeFileSync(filePath, '');
+
+    const lastLineIndex = document.lineCount - 1;
+    const range = new vscode.Range(0, 0, lastLineIndex, document.lineAt(lastLineIndex).text.length);
+    editor.selection = new vscode.Selection(range.start, range.end);
 
 
 const { exec } = require('child_process');
