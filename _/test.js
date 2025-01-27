@@ -7,7 +7,7 @@ const aa = async () => {
    const document = await vscode.workspace.openTextDocument(f)
    const editor = await vscode.window.showTextDocument(document, vscode.ViewColumn.Two);
 
-   const filePath = '/tmp/ran52'
+   const filePath = '/tmp/ran53'
    const ran = fs.existsSync(filePath)
    if (!ran) {
      fs.writeFileSync(filePath, '');
@@ -53,7 +53,9 @@ function run_in_terminal(cmd, title='Tron', cb) {
 
 
    const disposable = vscode.window.onDidWriteTerminalData(event => {
+                   exec('say onDidWriteTerminalData');
         if (event.terminal === terminal) {
+                   exec('say terminal terminal');
               // Assuming your completion criteria are met by checking the output
               if (event.data.includes('Process completed')) {
                    exec('say Execution finished.');
