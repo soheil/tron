@@ -46,33 +46,16 @@ const watch_it = (path) => {
   run_in_terminal(`uvx --with llm-ollama llm -m 'hf.co/unsloth/DeepSeek-R1-Distill-Llama-8B-GGUF:Q8_0' <<'EOF' > /Users/soheil/chat/gpt/2025-01-26_12_48_27.md
 ${data}
 EOF
-; rm ${done_file}`, 'Tron', finished_running_in_terminal);
+rm ${done_file}`);
 }
 
 watcher.on('change', watch_it);
 
-const empty_fn = () => {};
-function run_in_terminal(cmd, title='Tron', cb=empty_fn) {
+function run_in_terminal(cmd, title='Tron') {
   vscode.window.terminals.map(terminal => terminal.name === title && terminal.dispose());
   const terminal = vscode.window.createTerminal(title);
   terminal.show();
   terminal.sendText(cmd);
-
-
-  exec('say pre onDidWriteTerminalData')
-   const disposable = vscode.window.onDidWriteTerminalData(event => {
-  exec('say in onDidWriteTerminalData')
-        if (event.terminal === terminal) {
-  exec('say terminal terminal')
-              // Assuming your completion criteria are met by checking the output
-              if (event.data.includes('Process completed')) {
-  exec('say Process completed')
-                   console.log('Execution finished.');
-                   cb();
-                   disposable.dispose();
-              }
-        }
-   });
 }
 
 function install_ollama() {
