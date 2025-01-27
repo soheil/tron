@@ -17,11 +17,11 @@ const { exec } = require('child_process');
 
 
 const chokidar = require('chokidar');
-let watcher = chokidar.watch(f);
+let watcher = chokidar.watch(f, { persistent: false });
 
 const done_file = '/tmp/uvx.lock';
 fs.writeFileSync(done_file, '');
-const done_watcher = chokidar.watch(done_file);
+const done_watcher = chokidar.watch(done_file, { persistent: false });
 
 const watch_it = (path) => {
   const int_id = setInterval(() => {
@@ -34,7 +34,7 @@ const watch_it = (path) => {
   function finished_running_in_terminal(path) {
     clearTimeout(int_id);
 
-    watcher = chokidar.watch(f);
+    watcher = chokidar.watch(f, { persistent: false });
     watcher.on('change', watch_it);
   }
   done_watcher.on('change', finished_running_in_terminal);
