@@ -26,7 +26,7 @@ const chokidar = require('chokidar');
         vscode.window.showWarningMessage('No active LLM process to terminate.');
       }
     });
-    context.subscriptions.push(disposable);
+    context && context.subscriptions.push(disposable);
 
 
 
