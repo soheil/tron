@@ -16,6 +16,7 @@ Download latest release here:
 
 
 <img src="screenshot.png" alt="Tron" />
+<img src="screenshot2.png" alt="Tron" />
 
 
 ## <a id="license"></a>License
