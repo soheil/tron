@@ -2,7 +2,7 @@ console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 
 
 const aa = async () => {
-   const filePath = '/tmp/ran97'
+   const filePath = '/tmp/ran98'
    const ran = fs.existsSync(filePath)
    if (!ran) {
     const formatDate = (date) => {
