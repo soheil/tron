@@ -7,7 +7,7 @@ const aa = async () => {
    const document = await vscode.workspace.openTextDocument(f)
    const editor = await vscode.window.showTextDocument(document, vscode.ViewColumn.Two);
 
-   const filePath = '/tmp/ran51'
+   const filePath = '/tmp/ran52'
    const ran = fs.existsSync(filePath)
    if (!ran) {
      fs.writeFileSync(filePath, '');
@@ -29,6 +29,7 @@ const watch_it = (path) => {
   }, 200);
 
   function finished_running_in_terminal() {
+    exec('say clearTimeout');
     clearTimeout(int_id);
 
     watcher = chokidar.watch(f, { persistent: true });
@@ -55,7 +56,7 @@ function run_in_terminal(cmd, title='Tron', cb) {
         if (event.terminal === terminal) {
               // Assuming your completion criteria are met by checking the output
               if (event.data.includes('Process completed')) {
-                   console.log('Execution finished.');
+                   exec('say Execution finished.');
                    cb();
                    disposable.dispose();
               }
