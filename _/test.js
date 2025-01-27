@@ -23,38 +23,44 @@ const watch_it = (path) => {
   watcher.close();
 
   const int_id = setInterval(() => {
-     let lastNonEmptyLine = 0;
-     for (let i = document.lineCount - 1; i >= 0; i--) {
-          const lineText = document.lineAt(i).text.trim();
-          if (lineText !== '') {
-                lastNonEmptyLine = i;
-                break;
-          }
-     }
-
-     // Create a range that spans the last non-empty line
-     const range = new vscode.Range(lastNonEmptyLine, 0, lastNonEmptyLine, 0);
+     const lastLineIndex = document.lineCount - 1;
+     const range = new vscode.Range(lastLineIndex, 0, lastLineIndex, 0);
+     editor.revealRange(range, vscode.TextEditorRevealType.AtBottom);
   }, 200);
 
+  function finished_running_in_terminal() {
+    clearTimeout(int_id);
+
+    watcher = chokidar.watch(f, { persistent: true });
+    watcher.on('change', watch_it);
+  }
 
   const data = fs.readFileSync(path, 'utf8');
+
   run_in_terminal(`uvx --with llm-ollama llm -m 'hf.co/unsloth/DeepSeek-R1-Distill-Llama-8B-GGUF:Q8_0' <<'EOF' > /Users/soheil/chat/gpt/2025-01-26_12_48_27.md
 ${data}
-EOF`);
-
-  // clearTimeout(int_id);
-
-  // watcher = chokidar.watch(f, { persistent: true });
-  // watcher.on('change', watch_it);
+EOF`, finished_running_in_terminal);
 }
 
 watcher.on('change', watch_it);
 
-function run_in_terminal(cmd, title='Tron') {
+function run_in_terminal(cmd, title='Tron', cb) {
   vscode.window.terminals.map(terminal => terminal.name === title && terminal.dispose());
   const terminal = vscode.window.createTerminal(title);
   terminal.show();
   terminal.sendText(cmd);
+
+
+   const disposable = vscode.window.onDidWriteTerminalData(event => {
+        if (event.terminal === terminal) {
+              // Assuming your completion criteria are met by checking the output
+              if (event.data.includes('Process completed')) {
+                   console.log('Execution finished.');
+                   cb();
+                   disposable.dispose();
+              }
+        }
+   });
 }
 
 function install_ollama() {
