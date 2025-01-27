@@ -7,7 +7,7 @@ const aa = async () => {
    const document = await vscode.workspace.openTextDocument(f)
    const editor = await vscode.window.showTextDocument(document, vscode.ViewColumn.Two);
 
-   const filePath = '/tmp/ran58'
+   const filePath = '/tmp/ran61'
    const ran = fs.existsSync(filePath)
    if (!ran) {
      fs.writeFileSync(filePath, '');
@@ -29,7 +29,6 @@ const watch_it = (path) => {
   }, 200);
 
   function finished_running_in_terminal() {
-    exec('say clearTimeout');
     clearTimeout(int_id);
 
     watcher = chokidar.watch(f, { persistent: true });
@@ -40,31 +39,28 @@ const watch_it = (path) => {
 
   run_in_terminal(`uvx --with llm-ollama llm -m 'hf.co/unsloth/DeepSeek-R1-Distill-Llama-8B-GGUF:Q8_0' <<'EOF' > /Users/soheil/chat/gpt/2025-01-26_12_48_27.md
 ${data}
-EOF`, 'Tron', finished_running_in_terminal);
+EOF`, finished_running_in_terminal);
 }
 
 watcher.on('change', watch_it);
 
 function run_in_terminal(cmd, title='Tron', cb) {
-
-   const disposable = vscode.window.onDidWriteTerminalData(event => {
-                   exec('say onDidWriteTerminalData');
-        if (event.terminal === terminal) {
-                   exec('say terminal terminal');
-              // Assuming your completion criteria are met by checking the output
-              if (event.data.includes('Process completed')) {
-                   exec('say Execution finished.');
-                   cb();
-                   disposable.dispose();
-              }
-        }
-   });
-
   vscode.window.terminals.map(terminal => terminal.name === title && terminal.dispose());
   const terminal = vscode.window.createTerminal(title);
   terminal.show();
   terminal.sendText(cmd);
 
+
+   const disposable = vscode.window.onDidWriteTerminalData(event => {
+        if (event.terminal === terminal) {
+              // Assuming your completion criteria are met by checking the output
+              if (event.data.includes('Process completed')) {
+                   console.log('Execution finished.');
+                   cb();
+                   disposable.dispose();
+              }
+        }
+   });
 }
 
 function install_ollama() {
