@@ -7,7 +7,7 @@ const aa = async () => {
    const document = await vscode.workspace.openTextDocument(f)
    const editor = await vscode.window.showTextDocument(document, vscode.ViewColumn.Two);
 
-   const filePath = '/tmp/ran47'
+   const filePath = '/tmp/ran48'
    const ran = fs.existsSync(filePath)
    if (!ran) {
      fs.writeFileSync(filePath, '');
@@ -34,7 +34,7 @@ const watch_it = (path) => {
 ${data}
 EOF`);
 
-  clearTimeout(int_id);
+  // clearTimeout(int_id);
 
   // watcher = chokidar.watch(f, { persistent: true });
   // watcher.on('change', watch_it);
