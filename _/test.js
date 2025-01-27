@@ -7,7 +7,7 @@ const aa = async () => {
    const document = await vscode.workspace.openTextDocument(f)
    vscode.window.showTextDocument(document, vscode.ViewColumn.Two);
 
-   const filePath = '/tmp/ran34'
+   const filePath = '/tmp/ran35'
    const ran = fs.existsSync(filePath)
    if (!ran) {
      fs.writeFileSync(filePath, '');
@@ -21,10 +21,11 @@ const watcher = chokidar.watch(f, {
   persistent: true
 });
 
-  watcher.on('change', (path) => {
-    run_in_terminal("uvx --with llm-ollama llm -m 'hf.co/unsloth/DeepSeek-R1-Distill-Llama-8B-GGUF:Q8_0' coooool > /Users/soheil/chat/gpt/2025-01-26_12_48_27.md")
-     // Handle file change
-  })
+watcher.on('change', (path) => {
+  watcher.close();
+
+  run_in_terminal("uvx --with llm-ollama llm -m 'hf.co/unsloth/DeepSeek-R1-Distill-Llama-8B-GGUF:Q8_0' 'hey how do i python code' > /Users/soheil/chat/gpt/2025-01-26_12_48_27.md")
+})
 
 function run_in_terminal(cmd, title='Tron') {
   vscode.window.terminals.map(terminal => terminal.name === title && terminal.dispose());
