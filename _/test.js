@@ -7,7 +7,7 @@ const aa = async () => {
    const document = await vscode.workspace.openTextDocument(f)
    vscode.window.showTextDocument(document, vscode.ViewColumn.Two);
 
-   const filePath = '/tmp/ran42'
+   const filePath = '/tmp/ran43'
    const ran = fs.existsSync(filePath)
    if (!ran) {
      fs.writeFileSync(filePath, '');
@@ -24,10 +24,22 @@ const watcher = chokidar.watch(f, {
 watcher.on('change', (path) => {
   watcher.close();
 
+
+  const int_id = setInterval(() => {
+    const lastLine = document.lineCount - 1;
+    const range = new vscode.Range(lastLine, 0, lastLine, 0);
+    editor.revealRange(range, vscode.TextEditorRevealType.AtTop);
+  }, 200);
+
+
   const data = fs.readFileSync(path, 'utf8');
   run_in_terminal(`uvx --with llm-ollama llm -m 'hf.co/unsloth/DeepSeek-R1-Distill-Llama-8B-GGUF:Q8_0' <<'EOF' > /Users/soheil/chat/gpt/2025-01-26_12_48_27.md
 ${data}
-EOF`)
+EOF`);
+
+  clearTimeout(int_id);
+
+
 })
 
 function run_in_terminal(cmd, title='Tron') {
