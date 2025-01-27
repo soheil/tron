@@ -7,7 +7,7 @@ const aa = async () => {
    const document = await vscode.workspace.openTextDocument(f)
    vscode.window.showTextDocument(document, vscode.ViewColumn.Two);
 
-   const filePath = '/tmp/ran28'
+   const filePath = '/tmp/ran29'
    const ran = fs.existsSync(filePath)
    if (!ran) {
      fs.writeFileSync(filePath, '');
@@ -53,7 +53,7 @@ function open_ollama_if_installed() {
     fileWatcher.onDidChange((uri) => {
       fileWatcher.dispose();
 
-      run_in_terminal("uvx --with llm-ollama llm -m 'hf.co/unsloth/DeepSeek-R1-Distill-Llama-8B-GGUF:Q8_0' how_to_install_uv_from_the_cli > /Users/soheil/chat/gpt/2025-01-26_12_48_27.md")
+      run_in_terminal("uvx --with llm-ollama llm -m 'hf.co/unsloth/DeepSeek-R1-Distill-Llama-8B-GGUF:Q8_0' coooool > /Users/soheil/chat/gpt/2025-01-26_12_48_27.md")
 
     });
 
