@@ -2,7 +2,7 @@ console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 
 
 const aa = async () => {
-   const filePath = '/tmp/ran98'
+   const filePath = '/tmp/ran96'
    const ran = fs.existsSync(filePath)
    if (!ran) {
     const formatDate = (date) => {
@@ -30,6 +30,10 @@ Delete this text and type your question for DeepSeek-R1 and then press CMD+S to 
     const lastLineIndex = document.lineCount - 1;
     const range = new vscode.Range(0, 0, lastLineIndex, document.lineAt(lastLineIndex).text.length);
     editor.selection = new vscode.Selection(range.start, range.end);
+
+
+
+     fs.writeFileSync(filePath, '');
 
 
 const { exec } = require('child_process');
