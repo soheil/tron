@@ -28,7 +28,16 @@ const watch_it = (path) => {
      editor.revealRange(range, vscode.TextEditorRevealType.AtBottom);
   }, 200);
 
-  function finished_running_in_terminal() {
+
+  const done_file = '/tmp/uvx.lock';
+  fs.writeFileSync(done_file, '');
+  const done_watcher = chokidar.watch(done_file, { persistent: true });
+  done_watcher.on('delete', (path) => {
+
+  });
+  
+
+  function finished_running_in_terminal(path) {
     clearTimeout(int_id);
 
     watcher = chokidar.watch(f, { persistent: true });
@@ -39,7 +48,8 @@ const watch_it = (path) => {
 
   run_in_terminal(`uvx --with llm-ollama llm -m 'hf.co/unsloth/DeepSeek-R1-Distill-Llama-8B-GGUF:Q8_0' <<'EOF' > /Users/soheil/chat/gpt/2025-01-26_12_48_27.md
 ${data}
-EOF`, 'Tron', finished_running_in_terminal);
+EOF
+; rm ${done_file}`, 'Tron', finished_running_in_terminal);
 }
 
 watcher.on('change', watch_it);
