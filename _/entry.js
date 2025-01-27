@@ -21,8 +21,8 @@ const done_file = '/tmp/uvx.lock';
     const disposable = vscode.commands.registerCommand('extension.terminateLLM', () => {
       const activeTerminal = vscode.window.terminals.find(terminal => terminal.name === 'Tron');
       if (activeTerminal) {
-        activeTerminal.dispose();
         exec(`date > ${done_file}`);
+        activeTerminal.dispose();
         vscode.window.showWarningMessage('Stopped LLM output.');
       } else {
         vscode.window.showWarningMessage('No active LLM process to terminate.');
