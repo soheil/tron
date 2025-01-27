@@ -28,7 +28,7 @@ const watch_it = (path) => {
 
   const int_id = setInterval(() => {
      const lastLineIndex = document.lineCount - 1;
-     const range = new vscode.Range(lastLineIndex, 0, lastLineIndex, 0);
+     const range = new vscode.Range(0, 0, lastLineIndex, 0);
      editor.revealRange(range, vscode.TextEditorRevealType.AtBottom);
   }, 200);
 
