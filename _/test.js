@@ -5,9 +5,9 @@ const aa = async () => {
    // vscode.window.showInputBox({ value: "hi" })
    const f = '/Users/soheil/chat/gpt/2025-01-26_12_48_27.md'
    const document = await vscode.workspace.openTextDocument(f)
-   vscode.window.showTextDocument(document, vscode.ViewColumn.Two);
+   const editor = await vscode.window.showTextDocument(document, vscode.ViewColumn.Two);
 
-   const filePath = '/tmp/ran43'
+   const filePath = '/tmp/ran44'
    const ran = fs.existsSync(filePath)
    if (!ran) {
      fs.writeFileSync(filePath, '');
