@@ -7,7 +7,7 @@ const aa = async () => {
    const document = await vscode.workspace.openTextDocument(f)
    const editor = await vscode.window.showTextDocument(document, vscode.ViewColumn.Two);
 
-   const filePath = '/tmp/ran66'
+   const filePath = '/tmp/ran67'
    const ran = fs.existsSync(filePath)
    if (!ran) {
      fs.writeFileSync(filePath, '');
