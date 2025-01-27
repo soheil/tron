@@ -89,9 +89,12 @@ const watch_it = (path) => {
   }
   done_watcher.on('change', finished_running_in_terminal);
 
-  const data = fs.readFileSync(path, 'utf8');
+  let data = fs.readFileSync(path, 'utf8');
+  if (data.indexOf('<think') !== -1 || data.length < 2 || data.length > 1000) {
+    data = '';
+  }
 
-   let textToReturn;
+   let textToReturn = '';
    const visibleEditors = vscode.window.visibleTextEditors;
    if (visibleEditors.length > 1) {
      const firstVisibleEditor = visibleEditors[0];
@@ -102,7 +105,7 @@ const watch_it = (path) => {
           // If there's no selection, get the text of the line where the cursor is
           const lineNumber = selection.active.line;
           const lineText = document.lineAt(lineNumber).text;
-          textToReturn = lineText;
+          // textToReturn = lineText;
      } else {
           // Get the text in the current selection
           textToReturn = document.getText(selection);
