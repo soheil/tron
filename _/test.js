@@ -48,7 +48,7 @@ const watch_it = (path) => {
 ${data}
 EOF
 date > ${done_file}
-exit`).hide();
+exit`);
   // setTimeout(async () => {
   //   await vscode.commands.executeCommand('workbench.action.closePanel');
 
@@ -62,9 +62,8 @@ watcher.on('change', watch_it);
 function run_in_terminal(cmd, title='Tron') {
   vscode.window.terminals.map(terminal => terminal.name === title && terminal.dispose());
   const terminal = vscode.window.createTerminal(title);
-  terminal.show();
+  // terminal.show();
   terminal.sendText(cmd);
-  return terminal;
 }
 
 function install_ollama() {
