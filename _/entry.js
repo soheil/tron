@@ -100,6 +100,7 @@ function run_in_terminal(cmd, title='Tron', show=false) {
   show && terminal.show();
   !show && vscode.window.showTextDocument(document, vscode.ViewColumn.Two);
   terminal.sendText(cmd);
+
   return terminal;
 }
 
