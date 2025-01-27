@@ -5,8 +5,24 @@ const aa = async () => {
    const filePath = '/tmp/ran93'
    const ran = fs.existsSync(filePath)
    if (!ran) {
+    const formatDate = (date) => {
+      const year = date.getFullYear();
+      const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are zero-indexed
+      const day = String(date.getDate()).padStart(2, '0');
+      const hours = String(date.getHours()).padStart(2, '0');
+      const minutes = String(date.getMinutes()).padStart(2, '0');
+      const seconds = String(date.getSeconds()).padStart(2, '0');
+
+      return `${year}-${month}-${day}_${hours}:${minutes}:${seconds}`;
+    };
+    const currentDateTime = formatDate(new Date());
+
    // vscode.window.showInputBox({ value: "hi" })
-   const f = '/Users/soheil/chat/gpt/2025-01-26_12_48_27.md'
+   const f = `/tmp/${currentDateTime}.md`;
+  fs.writeFileSync(f, `Hi to you Tron user!
+
+CMD+A in this view to replace all the text and type your question for DeepSeek-R1 and then press CMD+S to save and ask your question.
+    `);
    const document = await vscode.workspace.openTextDocument(f)
    const editor = await vscode.window.showTextDocument(document, vscode.ViewColumn.Two);
 
