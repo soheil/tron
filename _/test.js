@@ -129,19 +129,21 @@ exec('type ollama', (error, stdout, stderr) => {
     return;
   }
   open_ollama_if_installed(false);
-    // if (!vscode.window.terminals.some(terminal => terminal.name === 'Ollama')) {
-    // }
 });
 
 
+
+
+
+
+
+
+
+
+
+
+
    }
-
-
-
-
-
-
-
 
 
 
