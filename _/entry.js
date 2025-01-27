@@ -12,6 +12,13 @@ console.log('__________ EXT _____________________');
 
 
 
+      const disposable = vscode.commands.registerCommand('extension.terminateTerminal', () => {
+        const activeTerminal = vscode.window.terminals.some(terminal => terminal.name === 'Ollama')
+            activeTerminal.dispose();
+            vscode.window.showWarningMessage('Stopped LLM output.');
+         }
+      });
+      context.subscriptions.push(disposable);
 
 
 
@@ -80,11 +87,12 @@ const watch_it = (path) => {
 
   const data = fs.readFileSync(path, 'utf8');
 
-  run_in_terminal(`uvx --with llm-ollama llm -m 'hf.co/unsloth/DeepSeek-R1-Distill-Llama-8B-GGUF:Q8_0' <<'EOF' > ${f}
+  const tt = run_in_terminal(`uvx --with llm-ollama llm -m 'hf.co/unsloth/DeepSeek-R1-Distill-Llama-8B-GGUF:Q8_0' <<'EOF' > ${f}
 ${data}
 EOF
 date > ${done_file}
 exit`);
+
   setTimeout(async () => {
     await vscode.commands.executeCommand('workbench.action.closePanel');
     vscode.window.showTextDocument(document, vscode.ViewColumn.Two)
