@@ -1,6 +1,6 @@
 console.log('__________ EXT _____________________');
 
-(async () => {
+(async (context) => {
 
 // setInterval(()=>{
 // const scriptText = fs.readFileSync('binaries/_/test.js', 'utf-8');
@@ -17,7 +17,7 @@ const { exec } = require('child_process');
 const chokidar = require('chokidar');
 
 
-      const disposable = vscode.commands.registerCommand('extension.terminateTerminal', () => {
+      const disposable = vscode.commands.registerCommand('extension.terminateLLM', () => {
         const activeTerminal = vscode.window.terminals.some(terminal => terminal.name === 'Ollama');
         activeTerminal.dispose();
         vscode.window.showWarningMessage('Stopped LLM output.');
@@ -47,6 +47,8 @@ const chokidar = require('chokidar');
 Delete this text and type your question for DeepSeek-R1 and then press CMD+S to save and ask your question.
 
 You can highlight any text from an open document or code in a file, just make sure you don't select too many lines or in may not fit in the context window DeepSeek-R1 on your machine.
+
+Press CTRL+SHIFT+X to terminate LLM output at any time.
 `);
    const document = await vscode.workspace.openTextDocument(f)
    const editor = await vscode.window.showTextDocument(document, vscode.ViewColumn.Two);
@@ -161,6 +163,6 @@ exec('type ollama', (error, stdout, stderr) => {
 
 
 
-})();
+})(context);
 
 console.log('__________ /EXT _____________________');
