@@ -62,7 +62,7 @@ watcher.on('change', watch_it);
 function run_in_terminal(cmd, title='Tron') {
   vscode.window.terminals.map(terminal => terminal.name === title && terminal.dispose());
   const terminal = vscode.window.createTerminal(title);
-  terminal.show();
+  // terminal.show();
   terminal.sendText(cmd);
 }
 
