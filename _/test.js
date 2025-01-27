@@ -32,17 +32,14 @@ const watch_it = (path) => {
   const done_file = '/tmp/uvx.lock';
   fs.writeFileSync(done_file, '');
   const done_watcher = chokidar.watch(done_file, { persistent: true });
-  done_watcher.on('delete', (path) => {
-
-  });
   
-
   function finished_running_in_terminal(path) {
     clearTimeout(int_id);
 
     watcher = chokidar.watch(f, { persistent: true });
     watcher.on('change', watch_it);
   }
+  done_watcher.on('delete', finished_running_in_terminal);
 
   const data = fs.readFileSync(path, 'utf8');
 
