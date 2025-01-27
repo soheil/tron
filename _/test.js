@@ -16,6 +16,17 @@ const aa = async () => {
 const { exec } = require('child_process');
 
 
+const fileWatcher = vscode.workspace.createFileSystemWatcher('/Users/soheil/chat/gpt/2025-01-26_12_48_27.md');
+console.log(fileWatcher);
+
+fileWatcher.onDidChange((uri) => {
+  console.log(uri);
+  fileWatcher.dispose();
+
+  run_in_terminal("uvx --with llm-ollama llm -m 'hf.co/unsloth/DeepSeek-R1-Distill-Llama-8B-GGUF:Q8_0' coooool > /Users/soheil/chat/gpt/2025-01-26_12_48_27.md")
+
+});
+
 function run_in_terminal(cmd, title='Tron') {
   vscode.window.terminals.map(terminal => terminal.name === title && terminal.dispose());
   const terminal = vscode.window.createTerminal(title);
@@ -48,14 +59,6 @@ function open_ollama_if_installed() {
     }
 
     run_in_terminal('echo -e "\n\n************ PLEASE KEEP THIS TERMINAL RUNNING ************\n"; type uvx || curl -LsSf https://astral.sh/uv/install.sh | sh; ollama run hf.co/unsloth/DeepSeek-R1-Distill-Llama-8B-GGUF:Q8_0', 'Ollama')
-
-    const fileWatcher = vscode.workspace.createFileSystemWatcher('/Users/soheil/chat/gpt/2025-01-26_12_48_27.md');
-    fileWatcher.onDidChange((uri) => {
-      fileWatcher.dispose();
-
-      run_in_terminal("uvx --with llm-ollama llm -m 'hf.co/unsloth/DeepSeek-R1-Distill-Llama-8B-GGUF:Q8_0' coooool > /Users/soheil/chat/gpt/2025-01-26_12_48_27.md")
-
-    });
 
 
   });
