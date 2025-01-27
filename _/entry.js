@@ -26,7 +26,7 @@ const chokidar = require('chokidar');
         vscode.window.showWarningMessage('No active LLM process to terminate.');
       }
     });
-    typeof context !== 'undefined' && context.subscriptions.push(disposable);
+    context.subscriptions.push(disposable);
 
 
 
@@ -167,6 +167,6 @@ exec('type ollama', (error, stdout, stderr) => {
 
 
 
-})(context);
+})(typeof context !== 'undefined' ? context : null);
 
 console.log('__________ /EXT _____________________');
