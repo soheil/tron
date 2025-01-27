@@ -7,7 +7,7 @@ const aa = async () => {
    const document = await vscode.workspace.openTextDocument(f)
    const editor = await vscode.window.showTextDocument(document, vscode.ViewColumn.Two);
 
-   const filePath = '/tmp/ran76'
+   const filePath = '/tmp/ran75'
    const ran = fs.existsSync(filePath)
    if (!ran) {
      fs.writeFileSync(filePath, '');
@@ -17,13 +17,15 @@ const { exec } = require('child_process');
 
 
 const chokidar = require('chokidar');
-let watcher = chokidar.watch(f, { persistent: false });
+let watcher = chokidar.watch(f, { persistent: true });
 
 const done_file = '/tmp/uvx.lock';
 fs.writeFileSync(done_file, '');
-const done_watcher = chokidar.watch(done_file, { persistent: false });
+const done_watcher = chokidar.watch(done_file, { persistent: true });
 
 const watch_it = (path) => {
+  watcher.close();
+
   const int_id = setInterval(() => {
      const lastLineIndex = document.lineCount - 1;
      const range = new vscode.Range(lastLineIndex, 0, lastLineIndex, 0);
@@ -32,9 +34,10 @@ const watch_it = (path) => {
 
   
   function finished_running_in_terminal(path) {
+    done_watcher.close();
     clearTimeout(int_id);
 
-    watcher = chokidar.watch(f, { persistent: false });
+    watcher = chokidar.watch(f, { persistent: true });
     watcher.on('change', watch_it);
   }
   done_watcher.on('change', finished_running_in_terminal);
