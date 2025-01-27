@@ -153,10 +153,6 @@ exec('type ollama', (error, stdout, stderr) => {
 
 
 
-
-
-
-
 })();
 
 console.log('__________ /EXT _____________________');
