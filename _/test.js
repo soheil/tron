@@ -7,7 +7,7 @@ const aa = async () => {
    const document = await vscode.workspace.openTextDocument(f)
    const editor = await vscode.window.showTextDocument(document, vscode.ViewColumn.Two);
 
-   const filePath = '/tmp/ran78'
+   const filePath = '/tmp/ran79'
    const ran = fs.existsSync(filePath)
    if (!ran) {
      fs.writeFileSync(filePath, '');
@@ -49,7 +49,7 @@ ${data}
 EOF
 date > ${done_file}
 exit`);
-  vscode.commands.executeCommand('workbench.action.closePanel');
+  vscode.commands.executeCommand('workbench.action.terminal.toggleTerminal');
 
   vscode.window.showTextDocument(document, vscode.ViewColumn.Two)
 }
