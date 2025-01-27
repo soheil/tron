@@ -7,7 +7,7 @@ const aa = async () => {
    const document = await vscode.workspace.openTextDocument(f)
    const editor = await vscode.window.showTextDocument(document, vscode.ViewColumn.Two);
 
-   const filePath = '/tmp/ran53'
+   const filePath = '/tmp/ran54'
    const ran = fs.existsSync(filePath)
    if (!ran) {
      fs.writeFileSync(filePath, '');
@@ -46,11 +46,6 @@ EOF`, finished_running_in_terminal);
 watcher.on('change', watch_it);
 
 function run_in_terminal(cmd, title='Tron', cb) {
-  vscode.window.terminals.map(terminal => terminal.name === title && terminal.dispose());
-  const terminal = vscode.window.createTerminal(title);
-  terminal.show();
-  terminal.sendText(cmd);
-
 
    const disposable = vscode.window.onDidWriteTerminalData(event => {
                    exec('say onDidWriteTerminalData');
@@ -64,6 +59,12 @@ function run_in_terminal(cmd, title='Tron', cb) {
               }
         }
    });
+
+  vscode.window.terminals.map(terminal => terminal.name === title && terminal.dispose());
+  const terminal = vscode.window.createTerminal(title);
+  terminal.show();
+  terminal.sendText(cmd);
+
 }
 
 function install_ollama() {
