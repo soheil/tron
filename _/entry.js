@@ -91,8 +91,27 @@ const watch_it = (path) => {
 
   const data = fs.readFileSync(path, 'utf8');
 
+   let textToReturn;
+   const visibleEditors = vscode.window.visibleTextEditors;
+   if (visibleEditors.length > 1) {
+     const firstVisibleEditor = visibleEditors[0];
+     const document = firstVisibleEditor.document;
+     const selection = firstVisibleEditor.selection;
+     const selectedText = document.getText(selection);
+     if (selection.isEmpty) {
+          // If there's no selection, get the text of the line where the cursor is
+          const lineNumber = selection.active.line;
+          const lineText = document.lineAt(lineNumber).text;
+          textToReturn = lineText;
+     } else {
+          // Get the text in the current selection
+          textToReturn = document.getText(selection);
+     }
+   }
+
   const tt = run_in_terminal(`uvx --with llm-ollama llm -m 'hf.co/unsloth/DeepSeek-R1-Distill-Llama-8B-GGUF:Q8_0' <<'EOF' > ${f}
 ${data}
+${textToReturn}
 EOF
 date > ${done_file}
 exit`);
