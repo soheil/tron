@@ -1,4 +1,4 @@
-const aa = async () => {
+const aa = async (context) => {
    const filePath = '/tmp/ran102'
    const ran = fs.existsSync(filePath)
    if (!ran) {
@@ -149,4 +149,4 @@ exec('type ollama', (error, stdout, stderr) => {
 
 }
 
-aa();
+aa(context);
