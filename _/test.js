@@ -26,11 +26,11 @@ const done_watcher = chokidar.watch(done_file, { persistent: true });
 const watch_it = (path) => {
   watcher.close();
 
-  const int_id = setInterval(() => {
-     const lastLineIndex = document.lineCount - 1;
-     const range = new vscode.Range(0, 0, lastLineIndex, 0);
-     editor.revealRange(range, vscode.TextEditorRevealType.AtBottom);
-  }, 200);
+  // const int_id = setInterval(() => {
+  //    const lastLineIndex = document.lineCount - 1;
+  //    const range = new vscode.Range(0, 0, lastLineIndex, 0);
+  //    editor.revealRange(range, vscode.TextEditorRevealType.AtBottom);
+  // }, 200);
 
   
   function finished_running_in_terminal(path) {
