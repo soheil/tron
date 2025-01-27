@@ -51,7 +51,7 @@ date > ${done_file}
 exit`);
   setTimeout(async () => {
     await vscode.commands.executeCommand('workbench.action.closePanel');
-  }, 100)
+  }, 200)
 
   vscode.window.showTextDocument(document, vscode.ViewColumn.Two)
 }
