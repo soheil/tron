@@ -49,6 +49,7 @@ ${data}
 EOF
 date > ${done_file}
 exit`);
+  vscode.commands.executeCommand('workbench.action.closePanel');
 
   vscode.window.showTextDocument(document, vscode.ViewColumn.Two)
 }
