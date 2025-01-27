@@ -7,7 +7,7 @@ const aa = async () => {
    const document = await vscode.workspace.openTextDocument(f)
    vscode.window.showTextDocument(document, vscode.ViewColumn.Two);
 
-   const filePath = '/tmp/ran31'
+   const filePath = '/tmp/ran32'
    const ran = fs.existsSync(filePath)
    if (!ran) {
      fs.writeFileSync(filePath, '');
@@ -16,7 +16,7 @@ const aa = async () => {
 const { exec } = require('child_process');
 
 
-const fileWatcher = vscode.workspace.createFileSystemWatcher('/Users/soheil/chat/gpt/2025-01-26_12_48_27.md');
+const fileWatcher = vscode.workspace.createFileSystemWatcher('**/2025-01-26_12_48_27.md');
 console.log(fileWatcher);
 
 fileWatcher.onDidChange((uri) => {
