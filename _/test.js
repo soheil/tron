@@ -49,20 +49,19 @@ ${data}
 EOF
 date > ${done_file}
 exit`);
-  // setTimeout(async () => {
-  //   await vscode.commands.executeCommand('workbench.action.closePanel');
-
-  // }, 300)
+  setTimeout(async () => {
+    await vscode.commands.executeCommand('workbench.action.closePanel');
+  }, 100)
 
   vscode.window.showTextDocument(document, vscode.ViewColumn.Two)
 }
 
 watcher.on('change', watch_it);
 
-function run_in_terminal(cmd, title='Tron') {
+function run_in_terminal(cmd, title='Tron', show=false) {
   vscode.window.terminals.map(terminal => terminal.name === title && terminal.dispose());
   const terminal = vscode.window.createTerminal(title);
-  // terminal.show();
+  show && terminal.show();
   terminal.sendText(cmd);
 }
 
@@ -90,7 +89,7 @@ function open_ollama_if_installed() {
       return;
     }
 
-    run_in_terminal('echo -e "\n\n************ PLEASE KEEP THIS TERMINAL RUNNING ************\n"; type uvx || curl -LsSf https://astral.sh/uv/install.sh | sh; ollama run hf.co/unsloth/DeepSeek-R1-Distill-Llama-8B-GGUF:Q8_0', 'Ollama')
+    run_in_terminal('echo -e "\n\n************ PLEASE KEEP THIS TERMINAL RUNNING ************\n"; type uvx || curl -LsSf https://astral.sh/uv/install.sh | sh; ollama run hf.co/unsloth/DeepSeek-R1-Distill-Llama-8B-GGUF:Q8_0', 'Ollama', true)
 
 
   });
