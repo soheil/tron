@@ -16,11 +16,13 @@ console.log('__________ EXT _____________________');
 const { exec } = require('child_process');
 const chokidar = require('chokidar');
 
+const done_file = '/tmp/uvx.lock';
 
     const disposable = vscode.commands.registerCommand('extension.terminateLLM', () => {
       const activeTerminal = vscode.window.terminals.find(terminal => terminal.name === 'Tron');
       if (activeTerminal) {
         activeTerminal.dispose();
+        exec(`date > ${done_file}`);
         vscode.window.showWarningMessage('Stopped LLM output.');
       } else {
         vscode.window.showWarningMessage('No active LLM process to terminate.');
@@ -66,7 +68,6 @@ Press CTRL+SHIFT+X to terminate LLM output at any time.
 
 let watcher = chokidar.watch(f, { persistent: true });
 
-const done_file = '/tmp/uvx.lock';
 fs.writeFileSync(done_file, '');
 const done_watcher = chokidar.watch(done_file, { persistent: true });
 
