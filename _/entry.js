@@ -18,7 +18,7 @@ const chokidar = require('chokidar');
 
 
     const disposable = vscode.commands.registerCommand('extension.terminateLLM', () => {
-      const activeTerminal = vscode.window.terminals.some(terminal => terminal.name === 'Tron');
+      const activeTerminal = vscode.window.terminals.find(terminal => terminal.name === 'Tron');
       if (activeTerminal) {
         activeTerminal.dispose();
         vscode.window.showWarningMessage('Stopped LLM output.');
