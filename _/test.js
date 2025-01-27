@@ -17,13 +17,9 @@ const { exec } = require('child_process');
 
 
 const chokidar = require('chokidar');
-const watcher = chokidar.watch(f, {
-  persistent: true
-});
 
-watcher.on('change', (path) => {
+const watch_it = (path) => {
   watcher.close();
-
 
   const int_id = setInterval(() => {
     const lastLine = document.lineCount - 1;
@@ -39,8 +35,12 @@ EOF`);
 
   clearTimeout(int_id);
 
+  watcher = chokidar.watch(f, { persistent: true });
+  watcher.on('change', watch_it);
+}
 
-})
+let watcher = chokidar.watch(f, { persistent: true });
+watcher.on('change', watch_it);
 
 function run_in_terminal(cmd, title='Tron') {
   vscode.window.terminals.map(terminal => terminal.name === title && terminal.dispose());
